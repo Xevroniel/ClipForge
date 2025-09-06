@@ -1,41 +1,33 @@
-'use client';
-
-import Link from 'next/link';
+'use client'
+import Link from 'next/link'
 
 export default function Page() {
+  const formHtml =
+    process.env.NEXT_PUBLIC_FORM_EMBED_YOUTUBE ??
+    '<p style="color:#aeb4bf">Form missing. Add NEXT_PUBLIC_FORM_EMBED_YOUTUBE in Vercel.</p>'
+
   return (
     <div className="container">
       <header className="header" role="banner">
-        <Link className="brand" href="/">
-          <img src="/logo-512.png" alt="ClipForge" width={34} height={34} />
-          <span>ClipForge</span>
-        </Link>
-        <nav>
-          <div className="cta-row">
-            <a className="btn btn-ghost" href="/">Home</a>
-            <a className="btn btn-primary" href="#waitlist">Get Early Access</a>
-          </div>
-        </nav>
+        <Link className="brand" href="/"><img src="/logo-512.png" alt="ClipForge" width={32} height={32} /><span>ClipForge</span></Link>
+        <Link className="btn" href="/">← Back</Link>
       </header>
 
-      <section className="hero">
-        <h1 className="display">Turn one long YouTube video into 10 shorts.</h1>
-        <p className="lede">
-          ClipForge finds highlights, auto-captions, resizes to 9:16, and prepares titles, descriptions, and tags for Shorts.
-        </p>
-        <div className="cta-row">
-          <a className="btn btn-primary" href="#waitlist">Join the Creator Beta</a>
-          <a className="btn btn-ghost" href="/">See all roles</a>
+      <main className="hero" role="main">
+        <h1>For YouTubers</h1>
+        <p>Auto-cut your long videos into Shorts with brand-ready captions, end-cards, and posting copy.</p>
+
+        <div style={{display:'grid',gap:12,margin:'18px 0 26px'}}>
+          <div className="btn" aria-disabled>Hook detector + chaptering</div>
+          <div className="btn" aria-disabled>Auto subtitles & styling</div>
+          <div className="btn" aria-disabled>Title/description/hashtags</div>
         </div>
-      </section>
 
-      <section id="waitlist" className="card" style={{marginTop: 12}}>
-        <h2 style={{marginBottom: 8}}>Get early access</h2>
-        <div dangerouslySetInnerHTML={{ __html: process.env.NEXT_PUBLIC_FORM_EMBED_YOUTUBE ?? '' }} />
-        <p className="footer">No spam. Unsubscribe anytime.</p>
-      </section>
+        <h2 style={{margin:'18px 0 10px',fontSize:18,opacity:.85}}>Join the beta</h2>
+        <div dangerouslySetInnerHTML={{ __html: formHtml }} />
 
-      <footer className="footer">© {new Date().getFullYear()} ClipForge</footer>
+        <footer className="footer">No spam. Unsubscribe anytime.</footer>
+      </main>
     </div>
-  );
+  )
 }
