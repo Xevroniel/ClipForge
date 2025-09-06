@@ -19,19 +19,19 @@ export default function Page() {
       </header>
 
       <section className="hero">
-        <h1 className="display">Turn webinars into client-winning clips.</h1>
+        <h1 className="display">From modules to viral teasers.</h1>
         <p className="lede">
-          ClipForge finds insights, adds branded captions, and generates LinkedIn posts that lead to booked calls.
+          ClipForge slices course modules into teasers, adds captions, and drafts emails and posts to drive enrollments.
         </p>
         <div className="cta-row">
-          <a className="btn btn-primary" href="#waitlist">Join the Coaches Beta</a>
+          <a className="btn btn-primary" href="#waitlist">Join the Course Creators Beta</a>
           <a className="btn btn-ghost" href="/">See all roles</a>
         </div>
       </section>
 
       <section id="waitlist" className="card" style={{marginTop: 12}}>
         <h2 style={{marginBottom: 8}}>Get early access</h2>
-        <div dangerouslySetInnerHTML={{ __html: process.env.NEXT_PUBLIC_FORM_EMBED_COACHES ?? '' }} />
+        <div dangerouslySetInnerHTML={{ __html: process.env.NEXT_PUBLIC_FORM_EMBED_COURSE_CREATORS ?? '' }} />
         <p className="footer">No spam. Unsubscribe anytime.</p>
       </section>
 
