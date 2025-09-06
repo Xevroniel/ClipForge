@@ -1,53 +1,47 @@
-'use client';
-
-import Link from 'next/link';
+// app/page.tsx
+'use client'
+import Link from 'next/link'
 
 export default function Page() {
   return (
     <div className="container">
       <header className="header" role="banner">
         <Link className="brand" href="/">
-          <img src="/logo-512.png" alt="ClipForge" width={34} height={34} />
+          <img src="/logo-512.png" alt="ClipForge logo" width={36} height={36} />
           <span>ClipForge</span>
         </Link>
-        <nav>
-          <div className="cta-row">
-            <a className="btn btn-ghost" href="#roles">Solutions</a>
-            <a className="btn btn-primary" href="#waitlist">Get Early Access</a>
-          </div>
-        </nav>
+        <span
+          style={{
+            padding: '8px 12px',
+            borderRadius: 12,
+            border: '1px solid rgba(255,255,255,.08)',
+            background: 'rgba(255,255,255,.02)',
+            color: '#aeb4bf',
+            fontSize: 13,
+          }}
+        >
+          Beta
+        </span>
       </header>
 
-      <section className="hero">
-        <h1 className="display">Turn one long video into <em>10 shorts</em> in minutes.</h1>
-        <p className="lede">
-          Upload a YouTube video or podcast. ClipForge auto-finds highlights, adds captions & layouts,
-          and prepares posts for YouTube Shorts, TikTok, Instagram, and LinkedIn.
-        </p>
-        <div className="cta-row">
-          <a className="btn btn-primary" href="#waitlist">Join the Creator Beta</a>
-          <a className="btn btn-ghost" href="#roles">See role-specific pages</a>
+      <main className="hero" role="main">
+        <h1>What type of videos do you make?</h1>
+        <p>Pick your path. We’ll tailor examples and a waitlist form to your world.</p>
+
+        <div className="choices" role="navigation" aria-label="Choose your role">
+          <Link className="btn" href="/coaches">B2B Coach</Link>
+          <Link className="btn" href="/consultants">Consultant</Link>
+          <Link className="btn" href="/podcasters">Podcast</Link>
+          <Link className="btn" href="/youtube">YouTube</Link>
+          <Link className="btn btn-primary" href="/course-creators">Course Creator</Link>
         </div>
-      </section>
 
-      <section id="roles" className="card" aria-label="Role selector" style={{marginTop: 12}}>
-        <strong>Who is this for?</strong>
-        <div style={{display:'flex', gap:10, marginTop:10, flexWrap:'wrap'}}>
-          <Link href="/youtube" className="btn btn-ghost">YouTubers</Link>
-          <Link href="/podcasters" className="btn btn-ghost">Podcasters</Link>
-          <Link href="/coaches" className="btn btn-ghost">B2B Coaches</Link>
-          <Link href="/consultants" className="btn btn-ghost">Consultants</Link>
-          <Link href="/course-creators" className="btn btn-ghost">Course Creators</Link>
-        </div>
-      </section>
+        <div className="tip">Tip: Press <kbd>1</kbd>–<kbd>5</kbd> to jump quickly.</div>
+      </main>
 
-      <section id="waitlist" className="card" style={{marginTop: 12}}>
-        <h2 style={{marginBottom: 8}}>Get early access</h2>
-        <div dangerouslySetInnerHTML={{__html: process.env.NEXT_PUBLIC_FORM_EMBED_YOUTUBE ?? ''}} />
-        <p className="footer">No spam. Unsubscribe anytime.</p>
-      </section>
-
-      <footer className="footer">© {new Date().getFullYear()} ClipForge</footer>
+      <footer className="footer">
+        © 2025 ClipForge — Made for creators. No spam, unsubscribe anytime.
+      </footer>
     </div>
-  );
+  )
 }
