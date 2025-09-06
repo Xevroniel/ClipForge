@@ -43,3 +43,80 @@ hr.sep{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255
 .logoWordmark{display:flex;align-items:center;gap:12px}
 .logoWordmark img{height:36px;width:36px}
 .logoWordmark strong{font-weight:800;font-size:20px}
+
+:root {
+  --brand-1: #0ea5e9;   /* sky-500 */
+  --brand-2: #7c3aed;   /* violet-600 */
+  --ink: #0b1220;       /* near-black */
+  --muted: #9aa3b2;
+}
+
+/* Use Plus Jakarta Sans as display, Inter as body */
+.font-sans { font-family: var(--font-inter), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+h1, h2, .display { font-family: var(--font-jakarta), var(--font-inter), sans-serif; letter-spacing: -.02em; }
+
+/* Eye-catching background: subtle dark + gradient glow + grid */
+.cf-bg {
+  color: #e7ecf2;
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(124,58,237,0.20), transparent 60%),
+    radial-gradient(900px 500px at 10% -10%, rgba(14,165,233,0.20), transparent 55%),
+    linear-gradient(180deg, #0a0f1c 0%, #060a13 100%);
+  min-height: 100vh;
+}
+
+/* Optional grid overlay (very subtle) */
+.cf-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px, 48px 48px;
+  mask-image: radial-gradient(50% 50% at 50% 50%, #000 40%, transparent 80%);
+  pointer-events: none;
+}
+
+/* Hero layout helpers */
+.container { max-width: 1080px; margin: 0 auto; padding: 24px; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-weight: 700; }
+
+.hero {
+  display: grid;
+  gap: 20px;
+  padding: clamp(24px, 5vw, 48px) 0 24px;
+}
+.hero h1 {
+  font-size: clamp(28px, 4vw, 56px);
+  line-height: 1.05;
+}
+.lede { color: var(--muted); max-width: 52ch; }
+
+/* CTA buttons */
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 44px; padding: 0 16px; border-radius: 10px;
+  font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.12);
+  transition: transform .12s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+  color: white; box-shadow: 0 10px 30px rgba(124,58,237,.25);
+}
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-ghost { background: rgba(255,255,255,0.04); color: #edf2f7; }
+.btn-ghost:hover { background: rgba(255,255,255,0.08); }
+
+/* Card */
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 18px;
+  backdrop-filter: blur(8px);
+}
+
+/* Footer */
+.footer { color: #9aa3b2; font-size: 14px; padding: 24px 0 60px; }
