@@ -1,5 +1,4 @@
 // app/page.tsx
-'use client'
 import Link from 'next/link'
 import { SocialProof, PricingTeaser } from './components/MarketingSections'
 
