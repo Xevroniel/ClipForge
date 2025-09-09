@@ -1,6 +1,7 @@
 // app/page.tsx
 'use client'
 import Link from 'next/link'
+import { SocialProof, PricingTeaser } from './components/MarketingSections'
 
 export default function Page() {
   return (
@@ -24,7 +25,8 @@ export default function Page() {
         </span>
       </header>
 
-      <main className="hero" role="main">
+      {/* Role chooser (anchor target) */}
+      <main id="roles" className="hero" role="main">
         <h1>What type of videos do you make?</h1>
         <p>Pick your path. We’ll tailor examples and a waitlist form to your world.</p>
 
@@ -38,6 +40,10 @@ export default function Page() {
 
         <div className="tip">Tip: Press <kbd>1</kbd>–<kbd>5</kbd> to jump quickly.</div>
       </main>
+
+      {/* New sections below the chooser */}
+      <SocialProof />
+      <PricingTeaser />
 
       <footer className="footer">
         © 2025 ClipForge — Made for creators. No spam, unsubscribe anytime.
