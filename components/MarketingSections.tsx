@@ -1,4 +1,5 @@
 // app/components/MarketingSections.tsx
+'use client'
 
 export function SocialProof() {
   return (
